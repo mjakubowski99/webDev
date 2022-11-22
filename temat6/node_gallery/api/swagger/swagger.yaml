@@ -1,0 +1,98 @@
+swagger: "2.0"
+info:
+  version: "0.1"
+  title: Node gallery
+host: localhost:10010
+basePath: /
+schemes:
+  - http 
+  - https
+consumes:
+  - application/json
+  - text/html; charset-utf-8
+produces:
+  - application/json
+  - text/html; charset-utf-8
+paths:
+  /:
+    x-swagger-router-controller: homepage
+    get:
+      operationId: homepage
+      produces:
+        - text/html; charset-utf-8
+      responses:
+        200:
+          description: Success
+          schema:
+            type: string
+  /images:
+    x-swagger-router-controller: image
+    get:
+      operationId: listImages
+      description: Get list of all images
+      responses:
+        200:
+          description: Success
+          schema:
+            $ref: "#/definitions/ImageListResponse"
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+  /swagger:
+    x-swagger-pipe: swagger_raw
+
+definitions:
+  ImageListResponse:
+    properties:
+      images:
+        type: array
+        items:
+          type: object
+          properties:
+            id:
+              type: string
+            title:
+              type: string
+            path:
+              type: string
+  ImageResponse:
+    type: object
+    properties:
+      id:
+        type: string
+      title:
+        type: string
+      description:
+        type: string
+      date:
+        type: string
+        format: date-time
+      path:
+        type: string
+      size:
+        type: integer
+  ImageUpdate:
+    type: object
+    properties:
+      title:
+        type: string
+      description:
+        type: string
+      date:
+        type: string
+        format: date-time
+  OperationStatus:
+    type: object
+    properties:
+      id:
+        type: string
+      status:
+        type: string
+  ErrorResponse:
+    required:
+      - message
+    properties:
+      message:
+        type: string
+          
