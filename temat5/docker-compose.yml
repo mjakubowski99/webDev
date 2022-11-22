@@ -1,0 +1,12 @@
+version: "3.8"
+services:
+  swagger:
+    container_name: swagger_docs
+    build:
+      context: ./
+      dockerfile: ./Dockerfile
+    ports:
+      - "10010:10010"
+    restart: unless-stopped
+    volumes:
+      - ./node_gallery/:/usr/src/docs/node_gallery/
