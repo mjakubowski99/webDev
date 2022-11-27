@@ -1,0 +1,23 @@
+{
+  "name": "express-project",
+  "version": "1.0.0",
+  "description": "WebDev express.js project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "jakubowskimichal1210@gmail.com",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1",
+    "body-parser": "^1.19.0",
+    "hbs": "^4.1.1",
+    "uuid": "^9.0.0",
+    "mongodb": "4.12.1",
+    "mongoose": "^6.7.3",
+    "assert": "^2.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
